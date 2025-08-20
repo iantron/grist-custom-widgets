@@ -1,0 +1,21 @@
+{
+  "name": "iantron/my_first_widget",
+  "description": "A test widget.",
+  "homePage": "https://github.com/iantron/grist-custom-widgets",
+  "version": "0.0.1",
+  "grist": {
+    "name": "Test",
+    "url": "https://idahlke.github.io/grist-custom-widgets/my_first_widget",
+    "widgetId": "iantron/my_first_widget",
+    "published": true,
+    "accessLevel": "full",
+    "renderAfterReady": true,
+    "description": "",
+    "authors": [
+      {
+        "name": "Ian Dahlke",
+        "url": "https://github.com/iantron"
+      }
+    ]
+  }
+}
