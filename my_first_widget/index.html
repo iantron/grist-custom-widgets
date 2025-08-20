@@ -1,34 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>reactjs</title>
+    <title>my_first_widget</title>
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script src="./my_first_widget.js" type="text/babel"></script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="text/babel">
-      function App() {
-        const [data, setData] = React.useState([]);
-        React.useEffect(() => {
-          grist.onRecords((records) => setData(records));
-          grist.ready({requiredAccess: 'read table'});
-        }, []);
-
-        const listItems = data.map(row =>
-          <li key={row.First_Name}>
-            {row.Callsign}
-          </li>
-        );
-
-        return (
-          <ul>{listItems}</ul>
-        );
-      }
-
-      ReactDOM.render(<App />, document.getElementById("root"));
-    </script>
   </body>
 </html>
