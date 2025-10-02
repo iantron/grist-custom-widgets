@@ -1,23 +1,24 @@
-function RecordsTable({records}) {
+function Card({row}) {
+  return (
+    <div className="grist-card">
+      {Object.entries(row).map(([key, value]) => (
+        <div key={key} className="grist-card-field">
+          <span className="grist-card-label">{key}:</span>
+          <span className="grist-card-value">{String(value)}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function CardGrid({records}) {
   if (!records.length) {
     return <div>No data</div>;
   }
-  const columns = Object.keys(records[0]);
   return (
-    <table className="grist-table">
-      <thead>
-        <tr>
-          {columns.map(col => <th key={col}>{col}</th>)}
-        </tr>
-      </thead>
-      <tbody>
-        {records.map((row, i) => (
-          <tr key={i}>
-            {columns.map(col => <td key={col}>{row[col]}</td>)}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className="grist-card-grid">
+      {records.map((row, i) => <Card key={i} row={row} />)}
+    </div>
   );
 }
 
@@ -31,7 +32,7 @@ function App() {
     <div>
       <div id="greeting">Hello from Grist Custom Widget!</div>
       <div id="rowCount">Rows: {records.length}</div>
-      <RecordsTable records={records} />
+      <CardGrid records={records} />
     </div>
   );
 }
